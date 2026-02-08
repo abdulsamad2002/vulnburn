@@ -40,12 +40,12 @@ For frequent use.
 npm install -g vulnburn
 vulnburn
 ```
-## 🤝 Contributing
+## Contributing
 
 1.  Fork it.
 2.  Fix your own code first.
 3.  Submit a PR.
 
-## 📝 License
+## License
 
 ISC
