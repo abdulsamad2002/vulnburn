@@ -1,0 +1,18 @@
+[
+  {
+    "id": "weak-password",
+    "roast": "This password is weaker than a wet paper napkin. Change it before a toddler hacks you."
+  },
+  {
+    "id": "hardcoded-secret",
+    "roast": "Did you just commit your API key? Might as well post it on Twitter and save us the trouble."
+  },
+  {
+    "id": "eval-usage",
+    "roast": "Using eval() is like giving a hacker the keys to your car and asking them to drive safely."
+  },
+  {
+    "id": "console-log",
+    "roast": "console.log in production? Very professional. I bet you debug on live servers too."
+  }
+]
