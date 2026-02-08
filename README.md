@@ -10,41 +10,74 @@ VulnBurn is a zero-config, blazing fast security scanner for Node.js, MERN stack
 
 Designed for the "Oh no, I almost committed that" moment.
 
-## 🚀 Features
+## 🚀 Ways to Run
 
-- **50+ Vulnerability Checks**: Covers OWASP Top 10, MERN-specific flaws, and cloud secrets.
-- **Zero Config**: Just run it. No complex YAML files.
-- **Secrets Detection**: Finds AWS, Stripe, Google, OpenAI, Slack, GitHub tokens, and more.
-- **SAST Engine**: Detects SQL/NoSQL injection, XSS, eval(), command injection, and logic flaws.
-- **Crypto Audit**: flags weak algorithms (MD5, SHA1, DES, ECB mode).
-- **Attitude**: The error messages will hurt your feelings. (You're welcome).
+### 1. Instant Run (Recommended)
 
-## 📦 Installation
-
-Run it directly with `npx` (Recommended):
+The fastest way to burn your code without installing anything globally.
 
 ```bash
+# Scan current directory
 npx vulnburn@latest
+
+# Scan a specific directory
+npx vulnburn@latest ./src
 ```
 
-Or install globally:
+### 2. Global Installation
+
+Install it once and roast your code from anywhere.
 
 ```bash
+# Install globally
 npm install -g vulnburn
-```
 
-## 🛠 Usage
-
-Scan the current directory:
-
-```bash
+# Run in any project
 vulnburn
+vulnburn ./legacy-code-that-nobody-touches
 ```
 
-Scan a specific directory:
+### 3. Add to Project (CI/CD)
+
+Add it as a dev dependency to catch bad code before you push.
 
 ```bash
-vulnburn ./src
+# Install as dev dependency
+npm install --save-dev vulnburn
+```
+
+Add a script to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "scan": "vulnburn",
+    "precommit": "vulnburn"
+  }
+}
+```
+
+Run it locally:
+
+```bash
+npm run scan
+```
+
+### 4. GitHub Actions (Automated Roasting)
+
+Fail your build pipeline automatically if you commit secrets. Add this to `.github/workflows/security.yml`:
+
+```yaml
+name: Security Scan
+on: [push, pull_request]
+
+jobs:
+  vulnburn:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run VulnBurn
+        run: npx vulnburn@latest
 ```
 
 ## 📸 Example Output
