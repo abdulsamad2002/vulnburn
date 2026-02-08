@@ -10,74 +10,84 @@ VulnBurn is a zero-config, blazing fast security scanner for Node.js, MERN stack
 
 Designed for the "Oh no, I almost committed that" moment.
 
-## 🚀 Ways to Run
+## 🚀 Usage Guide
 
-### 1. Instant Run (Recommended)
-
-The fastest way to burn your code without installing anything globally.
+The CLI is straightforward. Run it in your terminal:
 
 ```bash
-# Scan current directory
-npx vulnburn@latest
-
-# Scan a specific directory
-npx vulnburn@latest ./src
+npx vulnburn [directory] [options]
 ```
 
-### 2. Global Installation
+### Arguments
 
-Install it once and roast your code from anywhere.
+| Argument    | Description                                                                 | Default                 |
+| :---------- | :-------------------------------------------------------------------------- | :---------------------- |
+| `directory` | The directory path you want to scan. Can be relative (`./src`) or absolute. | `.` (Current Directory) |
+
+### Options
+
+| Option      | Alias | Description                                                                                                                         |
+| :---------- | :---- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| `--verbose` | `-v`  | Outputs the raw JSON scan results instead of the pretty-printed roast report. Useful for debugging or integrating with other tools. |
+| `--help`    | `-h`  | Display help for command.                                                                                                           |
+| `--version` | `-V`  | Output the version number.                                                                                                          |
+
+### Examples
+
+**1. Standard Scan (Current Directory)**
 
 ```bash
-# Install globally
+npx vulnburn
+```
+
+**2. Scan a Specific Folder**
+
+```bash
+npx vulnburn ./src/api
+```
+
+**3. Get Raw JSON Output (Verbose)**
+Great for piping into jq or saving to a file.
+
+```bash
+npx vulnburn . --verbose > scan-results.json
+```
+
+---
+
+## 📦 Installation Options
+
+### Instant Run (Recommended)
+
+No installation needed.
+
+```bash
+npx vulnburn
+```
+
+### Global Install
+
+For frequent use.
+
+```bash
 npm install -g vulnburn
-
-# Run in any project
 vulnburn
-vulnburn ./legacy-code-that-nobody-touches
 ```
 
-### 3. Add to Project (CI/CD)
+### Dev Dependency (CI/CD)
 
-Add it as a dev dependency to catch bad code before you push.
+Add to your project to run locally or in pipelines.
 
 ```bash
-# Install as dev dependency
 npm install --save-dev vulnburn
 ```
 
-Add a script to your `package.json`:
+Then add to `package.json` scripts:
 
 ```json
-{
-  "scripts": {
-    "scan": "vulnburn",
-    "precommit": "vulnburn"
-  }
+"scripts": {
+  "scan": "vulnburn"
 }
-```
-
-Run it locally:
-
-```bash
-npm run scan
-```
-
-### 4. GitHub Actions (Automated Roasting)
-
-Fail your build pipeline automatically if you commit secrets. Add this to `.github/workflows/security.yml`:
-
-```yaml
-name: Security Scan
-on: [push, pull_request]
-
-jobs:
-  vulnburn:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run VulnBurn
-        run: npx vulnburn@latest
 ```
 
 ## 📸 Example Output
