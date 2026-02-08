@@ -1,0 +1,544 @@
+{
+  "hardcoded_secret": {
+    "aws": {
+      "critical": [
+        "Oh look, AWS keys in {file}. What's next, live-streaming your root password on Twitch?",
+        "AKIA spotted at {file}:{line}. That's not a key, that's a 'Free Cloud Mining' coupon for hackers.",
+        "Your AWS credentials are just vibing in plain text. Jeff Bezos didn't need that yacht anyway.",
+        "Found AWS keys in {file}. I've seen better security in a screen door submarine.",
+        "Hardcoded AWS secrets? Someone's EC2 bill is about to look like a phone number."
+      ]
+    },
+    "azure": {
+      "critical": [
+        "Azure keys at {file}:{line}. Microsoft's security team just felt a disturbance in the Force.",
+        "Your Azure credentials are more exposed than a nudist at a family reunion.",
+        "Azure key detected in {file}. At this point, just post it on Reddit and cut out the middleman.",
+        "Hardcoded Azure secrets? Bold move for someone who enjoys explaining breaches to executives."
+      ]
+    },
+    "github": {
+      "critical": [
+        "GitHub token in {file}? Your repo is about to become a hacker collaboration experiment.",
+        "ghp_ token just chillin at {file}:{line}. Hope you like surprise commits signed 'NotAHacker'.",
+        "Found your GitHub PAT. The credential-scraping bots are already fighting over it.",
+        "GitHub token detected. May the force-push be with you... because it's coming."
+      ]
+    },
+    "anthropic": {
+      "critical": [
+        "sk-ant- in {file}? Even Claude is disappointed. That's ME. I'm disappointed in you.",
+        "Anthropic API key in plain text. Someone's about to have deep philosophical conversations on your credit card.",
+        "Found your Claude key at {file}:{line}. RIP your API budget, you beautiful disaster.",
+        "Hardcoded Anthropic key? Your spending limit is about to become a suggestion."
+      ]
+    },
+    "openai": {
+      "critical": [
+        "OpenAI key in {file}. Congrats, you're now funding someone's AI girlfriend chatbot.",
+        "sk- token at {file}:{line}. That's not an API key, that's a blank check for GPT-4 calls.",
+        "Hardcoded OpenAI credentials? Sam Altman thanks you for your generous donation.",
+        "Found your OpenAI key. Your API quota is having its final moments."
+      ]
+    },
+    "stripe": {
+      "critical": [
+        "Stripe key in {file}. Your payment processor just became a charity for hackers.",
+        "sk_live_ detected at {file}:{line}. This is speedrunning 'fired for cause' any%.",
+        "Found Stripe credentials. Time to practice saying 'catastrophic data breach' without crying.",
+        "Hardcoded Stripe secret? Your merchant account has less time left than a mayfly."
+      ]
+    },
+    "slack": {
+      "critical": [
+        "Slack token in {file}? Can't wait for the 3am messages in #general about enlargement pills.",
+        "xoxb- at {file}:{line}. Your company's confidential channels are about to get spicy.",
+        "Found your Slack token. HR is gonna need so much therapy after this.",
+        "Hardcoded Slack credentials. #security-incidents is about to become #security-incident."
+      ]
+    },
+    "google": {
+      "critical": [
+        "Google API key in {file}? Your quota is about to disappear faster than free donuts at a dev meetup.",
+        "AIza key at {file}:{line}. Google's billing team is already celebrating.",
+        "Hardcoded Google credentials. Hope you enjoy surprise invoices that make you weep.",
+        "Found your Google API key. Wave goodbye to your free tier like it's leaving for college."
+      ]
+    },
+    "generic": {
+      "critical": [
+        "Hardcoded {secret_type} in {file}? Were you raised by wolves? Security-illiterate wolves?",
+        "{secret_type} at {file}:{line}. That's not source control, that's a crime scene.",
+        "Found {secret_type} in plain text. You know what's cooler than secrets in code? NOT THAT.",
+        "Committing {secret_type} to git. This is your brain. This is your brain on no security training.",
+        "{secret_type} detected in {file}. Going for the 'Breach Speedrun' world record, I see."
+      ],
+      "high": [
+        "Possible {secret_type} in {file}. Schrödinger's vulnerability - simultaneously fine and catastrophic.",
+        "Suspicious {secret_type} at {file}:{line}. Please tell me this is a test. PLEASE.",
+        "Looks like {secret_type} in {file}. I'm choosing to believe you know what you're doing. I'm wrong, aren't I?"
+      ]
+    }
+  },
+
+  "sql_injection": {
+    "critical": [
+      "SQL injection in {file}:{line}. Little Bobby Tables sends his regards and your database schema.",
+      "String concatenation in SQL? This isn't 2003. Your security is though.",
+      "Raw SQL + user input = Your database is now a Choose Your Own Adventure book for hackers.",
+      "SQL injection at {file}:{line}. Prepared statements called. They want to know why you ghosted them.",
+      "Found SQL concatenation. Did you learn this from a 'How to Lose Your Job' speedrun guide?",
+      "User input in SQL queries at {file}. That's not programming, that's assisted hacking.",
+      "SQL injection detected. Your database is one semicolon away from the void.",
+      "Concatenating SQL in {file}:{line}. Even Access databases are judging you right now."
+    ],
+    "high": [
+      "Potential SQL injection in {file}. Use prepared statements before someone uses DROP TABLE as a greeting.",
+      "Sus SQL at {file}:{line}. One malicious input away from 'database? what database?'",
+      "This SQL pattern is fishier than a tuna factory. Your future unemployed self won't thank you.",
+      "Possible SQL injection. Fix this before it becomes a LinkedIn apology post.",
+      "SQL query construction looks sketchy. Listen to your spidey-sense, it's screaming."
+    ]
+  },
+
+  "nosql_injection": {
+    "critical": [
+      "NoSQL injection in {file}. MongoDB doesn't mean 'No security, bro'.",
+      "Unvalidated NoSQL query. Someone's about to $where their way into your entire database.",
+      "NoSQL injection at {file}:{line}. Just because it's not SQL doesn't mean it's not stupid.",
+      "Found NoSQL injection. Your data is one malicious object away from being public domain.",
+      "MongoDB injection detected. Hope you weren't attached to that data."
+    ],
+    "high": [
+      "Potential NoSQL injection in {file}. Sanitize inputs or suffer the consequences of your hubris.",
+      "Sus NoSQL pattern detected. Better paranoid than breached.",
+      "NoSQL query looks vulnerable at {file}:{line}. Trust issues are healthy in security."
+    ]
+  },
+
+  "command_injection": {
+    "critical": [
+      "Command injection in {file}:{line}. Why not just give them SSH access and save time?",
+      "exec() with user input? That's not a feature, that's a backdoor with a welcome mat.",
+      "Unsanitized shell commands. Your server is now their server. Sharing is caring!",
+      "Command injection found. Hope you enjoy random cron jobs you didn't create.",
+      "exec() + user input = Hacker playground. This is literally Security 101. LITERALLY.",
+      "Found command injection at {file}:{line}. This is how servers become bitcoin miners.",
+      "Shell command with user input. Did you want remote code execution? Because this is how you get remote code execution.",
+      "Command injection detected. Your system is one backtick away from total ownage."
+    ]
+  },
+
+  "eval_usage": {
+    "critical": [
+      "eval() in production? That's not debugging, that's playing Russian roulette with all chambers loaded.",
+      "Found eval() at {file}:{line}. JavaScript itself is cringing.",
+      "eval() detected. Why not just upload a 'pwn me' sign while you're at it?",
+      "Using eval() in {file}. There are no good reasons for this. NONE. ZERO. NADA.",
+      "eval() in production. This is your security, and this is your security on drugs. Don't do drugs.",
+      "Found eval() at {file}:{line}. Every security book ever written just burst into flames.",
+      "eval() usage detected. Your threat model is 'literally everyone with an internet connection'.",
+      "eval() spotted. Congrats, you've weaponized your own code against yourself."
+    ]
+  },
+
+  "xss": {
+    "high": [
+      "innerHTML with user input? XSS vulns love this one weird trick!",
+      "dangerouslySetInnerHTML in {file}. React named it that for a REASON. A BIG OBVIOUS REASON.",
+      "Unescaped user input at {file}:{line}. Your users are about to become your attackers.",
+      "XSS vulnerability detected. Hope you like malicious JavaScript running in your app.",
+      "Found innerHTML usage. One <script> tag away from security incident of the year.",
+      "XSS risk in {file}:{line}. Sanitize outputs or become a cautionary tale.",
+      "Unescaped output detected. This is how session cookies get stolen and tears get cried.",
+      "dangerouslySetInnerHTML without sanitization. The name LITERALLY warns you. How did you miss this?"
+    ],
+    "medium": [
+      "Potential XSS in {file}. Escape your outputs before they escape your control.",
+      "Sus innerHTML usage. Better safe than explaining XSS to non-technical stakeholders.",
+      "Possible XSS at {file}:{line}. Context-aware encoding is your friend. Make friends with it.",
+      "User input in HTML without escaping. That's a paddlin'. A serious security paddlin'.",
+      "XSS risk detected. Your DOM is not a trust fall exercise."
+    ]
+  },
+
+  "weak_crypto": {
+    "md5": {
+      "high": [
+        "MD5 for hashing? Might as well use pig latin. Actually, pig latin might be more secure.",
+        "MD5 in {file}. This algorithm is old enough to rent a car and completely broken.",
+        "Using MD5 at {file}:{line}. Your passwords are as secure as a chocolate teapot.",
+        "MD5 detected. Rainbow tables have entered the chat, and they brought friends.",
+        "MD5 in 2024? Did you also bring back MySpace and Tamagotchis?"
+      ]
+    },
+    "sha1": {
+      "high": [
+        "SHA1 in {file}. Even Git doesn't trust it anymore, and Git trusts EVERYTHING.",
+        "SHA1 for security? Google broke this in 2017. Where have you been?",
+        "Using SHA1 at {file}:{line}. Living dangerously is cool until you're not living employedly.",
+        "SHA1 detected. This hash function is more deprecated than Internet Explorer.",
+        "SHA1 in production. Your security is stuck in a time loop from 2015."
+      ]
+    },
+    "des": {
+      "high": [
+        "DES encryption? That's been broken since Clinton was president. The first Clinton.",
+        "Found DES at {file}:{line}. This encryption is weaker than gas station sushi.",
+        "DES detected. Your 'encryption' is basically obfuscation with delusions of grandeur."
+      ]
+    }
+  },
+
+  "missing_auth": {
+    "critical": [
+      "No auth check in {file}:{line}. This endpoint is public now. Surprise!",
+      "Missing authentication. Hope you like unauthorized access to sensitive operations.",
+      "Unprotected endpoint at {file}. Your API is now everyone's API. Communism for APIs!",
+      "No auth found. This is how data breaches start and careers end.",
+      "Missing auth in {file}:{line}. Security through obscurity isn't security, it's wishful thinking."
+    ],
+    "high": [
+      "Possible missing auth in {file}. Double-check before some 'security researcher' finds it.",
+      "Suspicious lack of auth checks. Better paranoid than breached and unemployed.",
+      "Endpoint looks unprotected at {file}:{line}. Verify this isn't your 'oh shit' moment.",
+      "Potential auth bypass. Review access controls before they bypass your career.",
+      "Missing auth check? Hope this endpoint isn't important. Narrator: It was."
+    ]
+  },
+
+  "weak_session": {
+    "high": [
+      "Weak session tokens in {file}. Math.random() is not cryptographically secure. Like, at all.",
+      "Session generation at {file}:{line} using Math.random(). That's predictable, which is BAD.",
+      "Found weak session handling. Use crypto.randomBytes(), not JavaScript's RNG.",
+      "Session tokens using weak randomness. Your sessions are easier to guess than your password.",
+      "Insecure session generation in {file}. This is Session Hijacking 101. You're teaching it."
+    ]
+  },
+
+  "cors_misconfiguration": {
+    "high": [
+      "CORS: * in {file}. Might as well put a 'Free Data - Help Yourself' sign on your API.",
+      "Access-Control-Allow-Origin: * detected. Every origin is welcome. EVERY. SINGLE. ONE.",
+      "Wide-open CORS at {file}:{line}. Your API boundaries are more like API suggestions.",
+      "CORS misconfiguration found. Hope you like requests from literally anywhere.",
+      "Permissive CORS in {file}. Your security perimeter is more of a security suggestion box."
+    ],
+    "medium": [
+      "Potentially loose CORS in {file}. Review allowed origins before production.",
+      "CORS policy looks sus at {file}:{line}. Might be too permissive for comfort.",
+      "Suspicious CORS config. Tighten this before it tightens your job security."
+    ]
+  },
+
+  "exposed_debug": {
+    "high": [
+      "Debug mode ON in {file}. Stack traces in production? That's hacker documentation.",
+      "debug=true at {file}:{line}. Your error messages are now 'How to Hack This App' tutorials.",
+      "Debug mode in production. This is how you leak your entire architecture.",
+      "Verbose errors detected. You're basically providing attackers with annotated source code.",
+      "Debug flag enabled in {file}. Hope you enjoy exposing implementation details to everyone."
+    ],
+    "medium": [
+      "Possible debug mode in {file}. Turn this off or turn off your career prospects.",
+      "Debug config detected. Production should be quiet like a ninja, not chatty like a podcast.",
+      "Debug settings at {file}:{line}. Disable before the incident report writes itself."
+    ]
+  },
+
+  "path_traversal": {
+    "critical": [
+      "Path traversal in {file}:{line}. ../../etc/passwd says hello from your filesystem.",
+      "Unsanitized file paths. Your filesystem is now a public file browser. Thanks for sharing!",
+      "Found path traversal at {file}. Hope you like unauthorized access to literally any file.",
+      "File path manipulation possible. Someone's about to read your /etc/shadow file.",
+      "Path traversal detected in {file}:{line}. Validate paths before your secrets take a walk."
+    ]
+  },
+
+  "ssrf": {
+    "critical": [
+      "SSRF vulnerability in {file}:{line}. Your server is now a proxy for hackers. Free VPN!",
+      "Unsanitized URLs in requests. Someone's about to scan your internal network from the inside.",
+      "Server-Side Request Forgery detected. Your internal services just became external services.",
+      "SSRF at {file}. Hope your internal network is hardened. Spoiler: It probably isn't.",
+      "User-controlled URLs in {file}:{line}. This is how cloud metadata APIs get exploited."
+    ]
+  },
+
+  "ldap_injection": {
+    "high": [
+      "LDAP injection in {file}. Sanitize inputs before querying directory services.",
+      "Unsanitized LDAP query at {file}:{line}. Auth bypass incoming in 3... 2... 1...",
+      "Found LDAP injection. Your directory is about to leak users like a sieve."
+    ]
+  },
+
+  "xml_injection": {
+    "high": [
+      "XXE vulnerability in {file}:{line}. XML External Entities are enabled. That's a yikes from me.",
+      "XML injection detected. Disable external entities before someone reads /etc/passwd via XML.",
+      "Found XXE at {file}. Someone's about to exploit your XML parser like it's 2014."
+    ]
+  },
+
+  "template_injection": {
+    "critical": [
+      "Template injection in {file}:{line}. SSTI = Remote Code Execution waiting to happen.",
+      "SSTI detected. Your template engine just became a code execution engine. Neat!",
+      "Template injection at {file}. Sanitize inputs before Jinja2 becomes your worst enemy.",
+      "User input in templates at {file}:{line}. This is how you get pwned before lunch.",
+      "SSTI vulnerability found. Hope you enjoy arbitrary code execution as a feature."
+    ]
+  },
+
+  "insecure_deserialization": {
+    "critical": [
+      "Unsafe deserialization in {file}:{line}. pickle with untrusted data? Are you TRYING to get hacked?",
+      "Insecure deserialization detected. Remote Code Execution as a Service™.",
+      "Found unsafe unserialize at {file}. Your app is one payload away from total ownage.",
+      "Deserialization vuln. This is literally OWASP Top 10. LITERALLY IN THE TOP 10.",
+      "Unsafe deserialization in {file}:{line}. Never trust pickled data from users. NEVER."
+    ]
+  },
+
+  "prototype_pollution": {
+    "high": [
+      "Prototype pollution in {file}:{line}. Your objects are about to grow unexpected properties.",
+      "Found prototype pollution. This is how you break JavaScript in creative new ways.",
+      "Unsafe object manipulation detected. __proto__ pollution is not a feature.",
+      "Prototype pollution at {file}. Validate object keys, or suffer JavaScript chaos.",
+      "Object.assign() with user input? That's prototype pollution waiting for an invitation."
+    ]
+  },
+
+  "regex_dos": {
+    "medium": [
+      "ReDoS vulnerability in {file}:{line}. That regex has exponential time complexity. Ouch.",
+      "Catastrophic backtracking detected. Your regex will DoS itself given the right input.",
+      "Found ReDoS pattern at {file}. This regex is a CPU time bomb waiting to detonate."
+    ]
+  },
+
+  "missing_csrf": {
+    "high": [
+      "No CSRF protection in {file}:{line}. Hope you like forged requests from evil websites.",
+      "Missing CSRF token. Your forms are vulnerable to forgery like a $3 bill.",
+      "Unprotected state-changing operation at {file}. Add CSRF tokens before it's too late.",
+      "CSRF vulnerability detected. One malicious link away from unauthorized actions.",
+      "No CSRF defense in {file}:{line}. Your users can be social-engineered into attacking themselves."
+    ]
+  },
+
+  "insecure_cookies": {
+    "medium": [
+      "Cookie without Secure flag in {file}. Hope you enjoy cleartext session IDs over HTTP.",
+      "Missing HttpOnly at {file}:{line}. XSS can now steal sessions like candy from a baby.",
+      "Insecure cookie found. Add Secure, HttpOnly, and SameSite flags. It's not optional.",
+      "Cookie security fail in {file}. Your sessions are less secure than a TSA checkpoint.",
+      "Missing SameSite attribute. CSRF attacks just got a whole lot easier."
+    ]
+  },
+
+  "client_storage_sensitive": {
+    "high": [
+      "Storing PII in localStorage? XSS says thanks for the free personally identifiable data.",
+      "Sensitive data in client storage at {file}:{line}. That's not a vault, it's a public bulletin board.",
+      "localStorage with secrets. Any XSS can steal this faster than you can say 'security incident'.",
+      "Sensitive data in browser storage. This is why we can't have nice things OR secure apps.",
+      "Client-side secrets in {file}. Hope no malicious scripts are running. They are."
+    ]
+  },
+
+  "missing_headers": {
+    "medium": [
+      "Missing security headers in {file}. No CSP, no X-Frame-Options, no protection, no problem!",
+      "Security headers not found. Your users deserve better defense than thoughts and prayers.",
+      "Missing CSP header at {file}:{line}. XSS protection is apparently optional now?",
+      "No HSTS header. Your HTTPS is more of an HTTPS suggestion.",
+      "Missing security headers. It's 2024, these should be standard like seatbelts."
+    ]
+  },
+
+  "weak_tls": {
+    "high": [
+      "TLS 1.0/1.1 in {file}. These protocols are deprecated harder than Internet Explorer.",
+      "Weak TLS configuration. Upgrade to TLS 1.2+ before PCI DSS auditors find you.",
+      "Outdated TLS at {file}:{line}. Your encryption is vintage, not secure.",
+      "TLS 1.0 detected. This is like using WEP for WiFi in 2024. Don't do it.",
+      "Weak TLS version in {file}. Everyone from PCI DSS to your grandmother says no."
+    ]
+  },
+
+  "exposed_git": {
+    "high": [
+      ".git folder exposed in production. Your entire source code is now a public repository.",
+      ".git directory at root. Hope your code has no secrets. Narrator: It does.",
+      ".git accessible in {file}. Someone's about to git clone your entire repository.",
+      "Exposed .git detected. This is your source code served on a silver platter.",
+      ".git in production. Amateur hour mistake with professional consequences."
+    ]
+  },
+
+  "verbose_errors": {
+    "medium": [
+      "Verbose error messages in {file}:{line}. Stack traces are basically hacker documentation.",
+      "Detailed errors in production. You're teaching attackers your exact tech stack. For free.",
+      "Found verbose errors at {file}. Less information is more security. Like, way more.",
+      "Error messages leaking info. Your exceptions are singing like canaries in a coal mine.",
+      "Stack traces in production. Hide your dirty laundry, don't air it publicly."
+    ]
+  },
+
+  "pii_in_logs": {
+    "high": [
+      "Logging PII in {file}:{line}. GDPR fines are no joke, but your logging practices are.",
+      "Sensitive data in logs. Hope your log files are secure. They're not, are they?",
+      "PII logging at {file}. Privacy laws hate this one simple trick (so do regulators).",
+      "Logging passwords/emails/SSNs. This is how you violate every compliance framework ever.",
+      "Personal data in logs. Your privacy policy just became creative fiction."
+    ]
+  },
+
+  "docker_as_root": {
+    "medium": [
+      "Docker running as root. Container escape = game over, thanks for playing.",
+      "Root user in Dockerfile. Use a non-root user, it's one line of code.",
+      "Container running as root. Defense in depth doesn't work when you're already root."
+    ]
+  },
+
+  "public_s3": {
+    "critical": [
+      "Public S3 bucket detected. Hope you didn't store anything sensitive. You did though.",
+      "World-readable S3 bucket. This is how data breaches make headlines and careers end.",
+      "S3 with public access. Your data is now everyone's data. Sharing is caring!",
+      "Public S3 permissions found. Check 'Have I Been Pwned' in 3... 2... 1...",
+      "Wide-open S3 bucket. Someone's downloading your database backup as we speak."
+    ]
+  },
+
+  "outdated_dependencies": {
+    "high": [
+      "Dependency with known CVE. npm audit exists for a reason - use it.",
+      "Outdated package detected. Hope that critical vuln isn't exploited. Spoiler: It will be.",
+      "Vulnerable dependency found. Run npm audit fix before someone runs an exploit.",
+      "Package with security issues. Your supply chain is showing, and it's not pretty.",
+      "Known CVE in dependencies. Update before you become a security news headline."
+    ],
+    "medium": [
+      "Outdated dependency. Not critical yet, but why tempt fate?",
+      "Old package version. Update when convenient, which is right now.",
+      "Dependency needs updating. Future you will thank present you. Or curse you. Probably curse."
+    ]
+  },
+
+  "deprecated_packages": {
+    "medium": [
+      "Deprecated package detected. The maintainer gave up. You should too (on this package).",
+      "Using unmaintained dependency. Find an alternative before it breaks in production.",
+      "Package is deprecated. Security patches don't happen by magic or wishful thinking."
+    ]
+  },
+
+  "category_templates": {
+    "injection": [
+      "{injection_type} in {file}:{line}. Sanitize inputs before hackers sanitize your data.",
+      "{injection_type} detected. Input validation isn't optional, friend.",
+      "{injection_type} at {file}. Your backend is basically a suggestion box for attackers.",
+      "Found {injection_type}. Trust no input, validate everything, pray often.",
+      "{injection_type} vulnerability. Your inputs are running wild like unsupervised toddlers."
+    ],
+    "info_disclosure": [
+      "{vulnerability_type} exposes sensitive info. Might as well publish secrets on Reddit.",
+      "Information disclosure in {file}. Loose lips sink ships and leak credentials.",
+      "{vulnerability_type} detected. Your app is oversharing like a drunk person at a party.",
+      "Info leak at {file}:{line}. Keep secrets secret. Novel concept, I know.",
+      "{vulnerability_type} found. Your information is leaking like a rusty bucket."
+    ],
+    "auth": [
+      "{vulnerability_type} in {file}:{line}. Authentication is not a suggestion.",
+      "Auth issue detected: {vulnerability_type}. Your security perimeter has holes.",
+      "{vulnerability_type} at {file}. Access control is important. Who knew?",
+      "Found {vulnerability_type}. Your auth is more decorative than functional.",
+      "{vulnerability_type} vulnerability. Your gates are open and the guards are asleep."
+    ],
+    "crypto": [
+      "{vulnerability_type} detected in {file}. Crypto is hard, but this is just lazy.",
+      "Weak crypto: {vulnerability_type} at {file}:{line}. Use modern algorithms or suffer.",
+      "{vulnerability_type} found. Your encryption is security theater.",
+      "Crypto fail in {file}: {vulnerability_type}. This isn't protecting anything.",
+      "{vulnerability_type} detected. Your crypto belongs in a museum, not production."
+    ]
+  },
+
+  "generic_severity": {
+    "critical": [
+      "CRITICAL: {vulnerability_type} in {file}:{line}. Fix this before someone pwns your entire system.",
+      "{vulnerability_type} found. This is a 'drop everything and fix it NOW' moment.",
+      "Critical {vulnerability_type} detected. Your system is one exploit away from total compromise.",
+      "{vulnerability_type} in {file}. This isn't a vulnerability, it's an open invitation to hackers.",
+      "Found critical {vulnerability_type}. Hope your resume is updated because you'll need it."
+    ],
+    "high": [
+      "High severity: {vulnerability_type} in {file}:{line}. This needs attention yesterday.",
+      "{vulnerability_type} detected. Not critical yet, but it's training to be.",
+      "High-risk {vulnerability_type} at {file}. Fix this before it becomes your legacy.",
+      "{vulnerability_type} found. Your security posture is more of a security slouch.",
+      "High severity {vulnerability_type}. This is important, even if you don't think so."
+    ],
+    "medium": [
+      "Medium risk: {vulnerability_type} in {file}:{line}. Not urgent, but don't ignore it forever.",
+      "{vulnerability_type} detected. Fix when you have time. You have time now. Fix it now.",
+      "Medium severity {vulnerability_type} at {file}. Future you will appreciate fixing this.",
+      "{vulnerability_type} found. Not critical, but still sus.",
+      "Medium-risk {vulnerability_type}. This is the security equivalent of a check engine light."
+    ],
+    "low": [
+      "Low severity: {vulnerability_type} in {file}:{line}. Minor issue, but why leave it?",
+      "{vulnerability_type} detected. Low priority, but perfectionism is a virtue.",
+      "Low-risk {vulnerability_type} at {file}. Not a big deal, but neither is fixing it.",
+      "{vulnerability_type} found. Small issue, but death by a thousand cuts is still death.",
+      "Minor {vulnerability_type}. Like a pebble in your shoe - annoying but fixable."
+    ]
+  },
+
+  "summary_roasts": {
+    "catastrophic": [
+      "Your codebase has {critical_count} critical vulnerabilities. Someone could pwn your entire system during their lunch break.",
+      "{total_count} vulnerabilities found. Did you learn security from a 'What Not To Do' tutorial?",
+      "{critical_count} critical issues? Your code is less secure than a cardboard bank vault.",
+      "Found {total_count} security holes. Your app is basically a security incident waiting for a time and place.",
+      "{critical_count} critical vulns detected. Your threat model is 'everyone with an internet connection'."
+    ],
+    "bad": [
+      "{critical_count} critical issues found. Your security posture is more of a security facepalm.",
+      "Found {total_count} vulnerabilities. Time for a security intervention and possibly therapy.",
+      "{critical_count} critical problems. This isn't a codebase, it's a liability.",
+      "{total_count} security issues detected. Your code needs adult supervision.",
+      "{critical_count} critical vulns. Hope your incident response plan is better than your code."
+    ],
+    "concerning": [
+      "{high_count} high-severity issues. Not terrible, but definitely not 'employee of the month' material.",
+      "Multiple security issues detected. Your code is playing security roulette.",
+      "{high_count} high-risk vulnerabilities. Time for a security code review, friend.",
+      "{total_count} issues found. Could be worse, but could definitely be better.",
+      "{high_count} high-severity problems. You're on thin ice but haven't fallen through yet."
+    ],
+    "decent": [
+      "Only {medium_count} medium issues found. Not bad! Fix these and you're golden.",
+      "Pretty solid overall. Just {total_count} minor issues standing between you and security nirvana.",
+      "{medium_count} medium-risk issues. You're in the security B+ range. Let's get you to an A.",
+      "Found {total_count} issues. Nothing critical though. You're doing alright, champ.",
+      "Only medium and low severity issues. Not perfect, but you're not getting fired today."
+    ],
+    "excellent": [
+      "Only {low_count} low-priority issues? Nice work! Your security game is actually strong.",
+      "Impressive! Just {total_count} minor nitpicks. Keep up the good work, security champion.",
+      "{total_count} low-severity issues found. You actually know what you're doing. Rare!",
+      "Almost flawless. Just a few tiny issues. Are you hiring? Asking for a friend (me).",
+      "Only minor issues found. Your code is more secure than most. Gold star for you! ⭐"
+    ]
+  }
+}

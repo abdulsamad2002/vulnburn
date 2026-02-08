@@ -8,16 +8,19 @@
     "vulnburn": "./bin/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ."
+    "test": "node bin/cli.js ./test",
+    "lint": "eslint .",
+    "publish": "npm publish --access public"
   },
   "keywords": [
     "security",
     "scanner",
     "cli",
-    "vulnerability"
+    "vulnerability",
+    "sast",
+    "secrets"
   ],
-  "author": "",
+  "author": "VulnBurn Team",
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.3.0",
