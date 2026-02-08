@@ -1,12 +1,19 @@
 {
   "name": "vulnburn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A security scanner with an attitude",
   "main": "src/scanner/index.js",
   "type": "module",
   "bin": {
     "vulnburn": "./bin/cli.js"
   },
+  "files": [
+    "bin",
+    "src",
+    "data",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "node bin/cli.js ./test",
     "lint": "eslint .",
